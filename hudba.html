@@ -12,25 +12,33 @@
     <a class="brand" href="index.html">UKI</a>
     <a class="back" href="sillanmaa.html">← zpět do Sillanmaa</a>
   </header>
-  <main class="content fade-in">
-    <div class="kicker">Hudba ze světa Uki</div>
+  <main class="content fade-in listen-page">
+    <div class="kicker">Zvuky ze světa Uki</div>
     <h1>Poslouchej</h1>
-    <p class="lead">Píseň může být další cestou do atmosféry příběhu. Tady bude její skutečný přehrávač nebo odkaz.</p>
+    <p class="lead">Někdy se do příběhu vstupuje očima. Jindy stačí zavřít oči a poslouchat.</p>
 
-    <div class="audio-box" data-audio-demo>
-      <div class="audio-row">
-        <button class="play" type="button" aria-label="Přehrát ukázku" aria-pressed="false">▶</button>
-        <div>
-          <strong>Píseň ze světa Uki</strong>
-          <div data-state style="color:var(--muted);margin-top:4px">Ukázkový přehrávač.</div>
-        </div>
+    <section class="listen-section">
+      <div class="kicker">Ukázka z knihy</div>
+      <h2 data-cms="audio_nazev">Ukázka z knihy Uki a ztracení psi</h2>
+      <p data-cms="audio_popisek">Poslechni si krátkou čtenou ukázku z knihy.</p>
+      <div class="cms-audio" data-cms-audio-wrap hidden>
+        <audio data-cms="audio_ukazka" controls preload="metadata"></audio>
       </div>
-      <div class="progress"><span></span></div>
-    </div>
+      <p class="muted" data-cms-empty="audio_ukazka">Čtená ukázka se právě připravuje.</p>
+    </section>
 
+    <section class="listen-section">
+      <div class="kicker">Píseň ze Sillanmaa</div>
+      <h2 data-cms="youtube_nazev">Píseň ze světa Uki</h2>
+      <div class="youtube-wrap" data-cms-youtube-wrap hidden>
+        <iframe data-cms="youtube_url" title="Píseň ze světa Uki na YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="muted" data-cms-empty="youtube_url">Píseň sem přibude, jakmile bude připravená k poslechu.</p>
+    </section>
   </main>
   <footer class="footer">UKI — svět za starým viaduktem</footer>
 </div>
+<script src="js/content.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

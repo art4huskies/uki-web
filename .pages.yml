@@ -7,6 +7,22 @@ media:
     categories: [document]
     rename: safe
 
+  - name: illustrations
+    label: Ilustrace
+    input: media/illustrations
+    output: media/illustrations
+    extensions: [jpg, jpeg, png, webp]
+    categories: [image]
+    rename: safe
+
+  - name: audio
+    label: Audio
+    input: media/audio
+    output: media/audio
+    extensions: [mp3, m4a, ogg, wav]
+    categories: [audio]
+    rename: safe
+
 content:
   - name: homepage
     label: Obsah webu Uki
@@ -23,6 +39,7 @@ content:
           format: html
           media: false
           switcher: false
+
       - name: ukazka_pdf
         label: Ukázka knihy (PDF)
         type: file
@@ -32,8 +49,70 @@ content:
           media: documents
           extensions: [pdf]
           rename: safe
+
       - name: ukazka_popisek
-        label: Krátký popisek ukázky
+        label: Krátký popisek PDF ukázky
         type: text
         required: false
         description: Nepovinná věta nad tlačítkem s PDF.
+
+      - name: ilustrace
+        label: Galerie ilustrací
+        type: object
+        required: false
+        description: Přidávej ilustrace, měň jejich pořadí nebo je odebírej.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nazev} — ilustrace {index}"
+        fields:
+          - name: obrazek
+            label: Obrázek
+            type: image
+            required: true
+            options:
+              media: illustrations
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: nazev
+            label: Název
+            type: string
+            required: false
+            description: Krátký název, např. Bílý los.
+          - name: popisek
+            label: Popisek
+            type: text
+            required: false
+            description: Nepovinný text pod ilustrací.
+
+      - name: audio_ukazka
+        label: Čtená audio ukázka
+        type: file
+        required: false
+        description: Nahraj MP3, M4A, OGG nebo WAV s krátkou čtenou ukázkou.
+        options:
+          media: audio
+          extensions: [mp3, m4a, ogg, wav]
+          categories: [audio]
+          rename: safe
+
+      - name: audio_nazev
+        label: Název audio ukázky
+        type: string
+        required: false
+
+      - name: audio_popisek
+        label: Popisek audio ukázky
+        type: text
+        required: false
+
+      - name: youtube_url
+        label: YouTube odkaz na píseň
+        type: string
+        required: false
+        description: Vlož celý odkaz na video z YouTube. Web z něj vytvoří přehrávač.
+
+      - name: youtube_nazev
+        label: Název písně
+        type: string
+        required: false
