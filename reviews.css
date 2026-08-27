@@ -1,0 +1,157 @@
+/* =========================================================
+   UKI — recenze a spontánní reakce betačtenářů
+   Tento soubor je doplněk k existujícímu style.css.
+   ========================================================= */
+
+.reader-reviews {
+  margin-top: 80px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.review-card {
+  margin: 0;
+  padding: 26px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  line-height: 1.65;
+}
+
+.review-card p {
+  margin-top: 0;
+}
+
+.review-card p:last-of-type {
+  margin-bottom: 0;
+}
+
+.review-card footer {
+  margin-top: 18px;
+  font-size: 0.83rem;
+  opacity: 0.68;
+}
+
+
+/* Rozházené útržky skutečných reakcí */
+
+.reader-whispers {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  min-height: 360px;
+  margin: 52px auto 80px;
+  overflow: visible;
+}
+
+.reader-whisper {
+  position: absolute;
+  max-width: 410px;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  opacity: 0.67;
+  letter-spacing: 0.01em;
+}
+
+.reader-whisper span {
+  display: block;
+  margin-top: 7px;
+  font-size: 0.76rem;
+  font-style: normal;
+  opacity: 0.72;
+}
+
+.whisper-left {
+  top: 12px;
+  left: 3%;
+  transform: rotate(-3deg);
+  font-size: 1.25rem;
+}
+
+.whisper-right {
+  top: 112px;
+  right: 2%;
+  transform: rotate(2deg);
+}
+
+.whisper-tapio {
+  top: 235px;
+  left: 22%;
+  transform: rotate(-1deg);
+}
+
+.whisper-note {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  font-size: 0.72rem;
+  opacity: 0.36;
+  letter-spacing: 0.05em;
+}
+
+
+/* Tablet */
+
+@media (max-width: 950px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    max-width: 720px;
+  }
+}
+
+
+/* Mobil */
+
+@media (max-width: 800px) {
+  .reader-reviews {
+    margin-top: 58px;
+  }
+
+  .reader-whispers {
+    min-height: auto;
+    margin: 42px 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .reader-whisper,
+  .whisper-note {
+    position: static;
+  }
+
+  .reader-whisper {
+    max-width: 88%;
+  }
+
+  .whisper-left {
+    align-self: flex-start;
+    transform: rotate(-2deg);
+    font-size: 1.13rem;
+  }
+
+  .whisper-right {
+    align-self: flex-end;
+    transform: rotate(1.5deg);
+    text-align: right;
+  }
+
+  .whisper-tapio {
+    align-self: flex-start;
+    margin-left: 7%;
+    transform: rotate(-1deg);
+  }
+
+  .whisper-note {
+    align-self: flex-end;
+  }
+}
