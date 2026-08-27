@@ -1,5 +1,23 @@
 {
   "anotace": "<p><strong>Nikdy nejezdi za starý viadukt.</strong> V Honkavaaře to ví každé dítě. Uki také – jenže když se osm tažných psů rozběhne za bílým losem, na rozumné rady už není čas.</p><p>Místo obyčejného výletu a rybaření s tatínkem se Uki ocitne v Sillanmaa, zemi bílých bříz, mluvících veverek a hor, které možná vůbec horami nejsou. Uki nikdy nechtěla být hrdinkou. Na rozdíl od své starší sestry Auri, která se nebojí snad ani medvěda, Uki fantazie pracuje velmi přesně a rychle. Ovšem většinou na výrobě katastrof. V neznámé zemi, kde přijde skoro o všechno, musí najít ztracené psy, cestu domů a odhodlání udělat další krok, i když se bojí.</p><p>Zimní, předvánoční dobrodružství o psím spřežení, přátelství a dvou místech, která se mohou stát domovem. Příběh pocukrovaný sněhem, okořeněný psím spřežením, Finskem, Sámy, severskou mytologií - i když poněkud svérázně pojatou.</p>",
   "ukazka_pdf": "media/docs/ukazkazuki.pdf",
-  "ukazka_popisek": "Přečti si ukázku z knihy Uki a ztracení psi."
+  "ukazka_popisek": "Přečti si ukázku z knihy Uki a ztracení psi.",
+  "ilustrace": [
+    {
+      "obrazek": "media/illustrations/image1-1.png",
+      "nazev": "Auri má horečku"
+    },
+    {
+      "obrazek": "media/illustrations/image3-1.png",
+      "nazev": "Bílý los"
+    },
+    {
+      "obrazek": "media/illustrations/image2-1.png",
+      "nazev": "spřežení"
+    },
+    {
+      "obrazek": "media/illustrations/image0-1.png",
+      "nazev": "obálka knihy"
+    }
+  ]
 }
