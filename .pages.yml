@@ -18,23 +18,22 @@ content:
         label: Anotace knihy
         type: rich-text
         required: true
-        description: Text anotace zobrazený na stránce O knize.
+        description: Text anotace zobrazený na stránce Kniha.
         options:
           format: html
           media: false
           switcher: false
-
       - name: ukazka_pdf
         label: Ukázka knihy (PDF)
         type: file
-        description: Nahraj aktuální PDF ukázku. Staré PDF můžeš později v médiích smazat.
+        required: false
+        description: Nahraj aktuální PDF ukázku knihy.
         options:
           media: documents
           extensions: [pdf]
           rename: safe
-
       - name: ukazka_popisek
         label: Krátký popisek ukázky
         type: text
         required: false
-        description: Nepovinná krátká věta pod nadpisem Ukázka z knihy.
+        description: Nepovinná věta nad tlačítkem s PDF.
