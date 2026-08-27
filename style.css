@@ -498,3 +498,28 @@ h1,h2{
   .cms-gallery{grid-template-columns:1fr}
   .gallery-item{max-width:280px;justify-self:center}
 }
+
+/* --- oprava: zobrazit ilustrace celé, bez ořezu --- */
+.gallery-item img{
+  display:block;
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:260px;
+  margin:0 auto;
+  padding:10px;
+  box-sizing:border-box;
+  object-fit:contain;
+  object-position:center center;
+  background:#fff;
+}
+@media (max-width:620px){
+  .gallery-item img{
+    width:auto;
+    max-width:100%;
+    height:auto;
+    max-height:220px;
+    margin:0 auto;
+    padding:8px;
+  }
+}
