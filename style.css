@@ -476,17 +476,17 @@ h1,h2{
   display:flex;
   flex-direction:column;
   width:100%;
-  max-width:280px;
+  max-width:320px;
   overflow:hidden;
 }
 .cms-gallery > .gallery-item > img{
   display:block !important;
   width:100% !important;
-  height:260px !important;
+  height:330px !important;
   max-width:none !important;
   max-height:none !important;
   margin:0 !important;
-  padding:12px !important;
+  padding:6px !important;
   box-sizing:border-box !important;
   object-fit:contain !important;
   object-position:center center !important;
@@ -497,7 +497,7 @@ h1,h2{
 }
 @media (max-width:620px){
   .cms-gallery > .gallery-item > img{
-    height:210px !important;
-    padding:8px !important;
+    height:250px !important;
+    padding:5px !important;
   }
 }
