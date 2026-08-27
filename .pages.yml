@@ -40,6 +40,31 @@ content:
           media: false
           switcher: false
 
+
+      - name: ilustrace_uvod
+        label: Úvodní text – Ilustrace
+        type: text
+        required: false
+        description: Krátký text pod nadpisem na stránce Ilustrace.
+
+      - name: hudba_uvod
+        label: Úvodní text – Poslouchej
+        type: text
+        required: false
+        description: Krátký text pod nadpisem na stránce Poslouchej.
+
+      - name: kniha_uvod
+        label: Úvodní text – Kniha
+        type: text
+        required: false
+        description: Krátký text pod nadpisem na stránce Kniha.
+
+      - name: sillanmaa_uvod
+        label: Úvodní text – Sillanmaa
+        type: text
+        required: false
+        description: Krátký text pod nadpisem na stránce Sillanmaa.
+
       - name: ukazka_pdf
         label: Ukázka knihy (PDF)
         type: file
