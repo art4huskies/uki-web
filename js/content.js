@@ -4,6 +4,16 @@
     if (!response.ok) throw new Error('Obsah se nepodařilo načíst.');
     const data = await response.json();
 
+    [
+      ['ilustrace_uvod', 'ilustrace_uvod'],
+      ['hudba_uvod', 'hudba_uvod'],
+      ['kniha_uvod', 'kniha_uvod'],
+      ['sillanmaa_uvod', 'sillanmaa_uvod']
+    ].forEach(([selectorKey, dataKey]) => {
+      const el = document.querySelector(`[data-cms="${selectorKey}"]`);
+      if (el && data[dataKey]) el.textContent = data[dataKey];
+    });
+
     const annotation = document.querySelector('[data-cms="anotace"]');
     if (annotation && data.anotace) annotation.innerHTML = data.anotace;
 
