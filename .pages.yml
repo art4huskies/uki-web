@@ -40,7 +40,6 @@ content:
           media: false
           switcher: false
 
-
       - name: ilustrace_uvod
         label: Úvodní text – Ilustrace
         type: text
@@ -120,6 +119,12 @@ content:
           extensions: [mp3, m4a, ogg, wav]
           categories: [audio]
           rename: safe
+
+      - name: audio_youtube_url
+        label: YouTube odkaz na audio ukázku
+        type: string
+        required: false
+        description: Vlož celý odkaz na video z YouTube. Pokud je vyplněný, web použije YouTube přehrávač místo nahraného audio souboru.
 
       - name: audio_nazev
         label: Název audio ukázky
