@@ -5,7 +5,8 @@
   "ilustrace": [
     {
       "obrazek": "media/illustrations/image1-1.png",
-      "nazev": "Auri má horečku"
+      "nazev": "Auri má horečku",
+      "popisek": "Maminka položila Auri dlaň na čelo. \"Řepa má dneska pěknou horečku.\"\n\"Mami nemám.\"\n\"Máš.\""
     },
     {
       "obrazek": "media/illustrations/image3-1.png",
