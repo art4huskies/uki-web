@@ -18,6 +18,11 @@
     {
       "obrazek": "media/illustrations/image0-1.png",
       "nazev": "obálka knihy"
+    },
+    {
+      "obrazek": "media/illustrations/image222.png",
+      "nazev": "Peikko a Uki",
+      "popisek": "Peikko uháněl po stezce zkušeně a jistě, přestože v lese už panovala úplná tma. Uki se držela jeho obrovských uší, snažila se neusnout a tiše si zpívala."
     }
   ],
   "audio_nazev": "Uki a ztracení psi, kapitola první.",
