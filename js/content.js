@@ -66,15 +66,27 @@
 
     const audio = document.querySelector('[data-cms="audio_ukazka"]');
     const audioWrap = document.querySelector('[data-cms-audio-wrap]');
+    const audioYoutubeWrap = document.querySelector('[data-cms-audio-youtube-wrap]');
+    const audioYoutubeFrame = document.querySelector('[data-cms="audio_youtube_url"]');
     const audioEmpty = document.querySelector('[data-cms-empty="audio_ukazka"]');
     const audioTitle = document.querySelector('[data-cms="audio_nazev"]');
     const audioDescription = document.querySelector('[data-cms="audio_popisek"]');
     if (audioTitle && data.audio_nazev) audioTitle.textContent = data.audio_nazev;
     if (audioDescription && data.audio_popisek) audioDescription.textContent = data.audio_popisek;
-    if (audio && data.audio_ukazka) {
+
+    const audioVideoId = getYouTubeId(data.audio_youtube_url || '');
+    if (audioYoutubeWrap && audioYoutubeFrame && audioVideoId) {
+      audioYoutubeFrame.src = `https://www.youtube-nocookie.com/embed/${audioVideoId}`;
+      audioYoutubeWrap.hidden = false;
+      if (audioWrap) audioWrap.hidden = true;
+      if (audioEmpty) audioEmpty.hidden = true;
+    } else if (audio && data.audio_ukazka) {
       audio.src = data.audio_ukazka;
       if (audioWrap) audioWrap.hidden = false;
+      if (audioYoutubeWrap) audioYoutubeWrap.hidden = true;
       if (audioEmpty) audioEmpty.hidden = true;
+    } else if (audioEmpty) {
+      audioEmpty.hidden = false;
     }
 
     const youtubeWrap = document.querySelector('[data-cms-youtube-wrap]');
