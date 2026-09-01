@@ -877,7 +877,7 @@ h1,h2{
   transform: translateX(-50%) scale(0.94);
 
   opacity: 0;
-  filter: blur(2px);
+  filter: blur(0.34px);
   mix-blend-mode: screen;
 
   pointer-events: none;
