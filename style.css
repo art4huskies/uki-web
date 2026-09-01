@@ -752,13 +752,107 @@ h1,h2{
     background: rgba(7, 28, 40, 0.64);
   }
 }
-/* TEST AURORY */
-.sillanmaa-page.is-night .aurora-one {
-  opacity: 1 !important;
-  background: radial-gradient(
-    ellipse at 50% 25%,
-    rgba(60, 255, 180, 0.9) 0%,
-    rgba(40, 220, 190, 0.55) 30%,
-    transparent 65%
-  ) !important;
+/* FINÁLNÍ TVAR AURORY */
+
+.sillanmaa-page .aurora-one,
+.sillanmaa-page .aurora-two,
+.sillanmaa-page .aurora-three {
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.sillanmaa-page .aurora-one {
+  top: -8vh;
+  left: -18vw;
+  width: 150vw;
+  height: 85vh;
+  filter: blur(18px);
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 6%,
+      rgba(70, 235, 185, 0.00) 15%,
+      rgba(70, 235, 185, 0.22) 23%,
+      rgba(100, 240, 200, 0.42) 30%,
+      rgba(57, 205, 181, 0.18) 38%,
+      transparent 47%,
+      rgba(84, 220, 194, 0.18) 58%,
+      rgba(95, 233, 205, 0.34) 66%,
+      transparent 77%
+    );
+
+  transform: rotate(-7deg) skewX(-9deg);
+}
+
+.sillanmaa-page .aurora-two {
+  top: -14vh;
+  left: -25vw;
+  width: 160vw;
+  height: 92vh;
+  filter: blur(24px);
+
+  background:
+    linear-gradient(
+      82deg,
+      transparent 12%,
+      rgba(62, 160, 190, 0.00) 21%,
+      rgba(63, 193, 190, 0.18) 31%,
+      rgba(88, 225, 190, 0.32) 39%,
+      transparent 48%,
+      rgba(77, 182, 204, 0.16) 61%,
+      rgba(81, 204, 190, 0.28) 70%,
+      transparent 82%
+    );
+
+  transform: rotate(5deg) skewX(8deg);
+}
+
+.sillanmaa-page .aurora-three {
+  top: -18vh;
+  left: -10vw;
+  width: 135vw;
+  height: 78vh;
+  filter: blur(30px);
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 18%,
+      rgba(86, 110, 190, 0.00) 28%,
+      rgba(92, 130, 205, 0.13) 39%,
+      rgba(84, 166, 197, 0.20) 48%,
+      transparent 61%,
+      rgba(107, 102, 190, 0.10) 70%,
+      transparent 80%
+    );
+
+  transform: rotate(-3deg);
+}
+
+.sillanmaa-page.is-night.aurora-visible .aurora-one {
+  opacity: 0.78;
+  transform: rotate(-4deg) skewX(-5deg) translateY(4%);
+}
+
+.sillanmaa-page.is-night.aurora-visible .aurora-two {
+  opacity: 0.58;
+  transform: rotate(2deg) skewX(5deg) translateY(-2%);
+}
+
+.sillanmaa-page.is-night.aurora-visible .aurora-three {
+  opacity: 0.38;
+  transform: rotate(1deg) translateY(3%);
+}
+
+.sillanmaa-page.is-night.aurora-peak .aurora-one {
+  opacity: 0.95;
+}
+
+.sillanmaa-page.is-night.aurora-peak .aurora-two {
+  opacity: 0.72;
+}
+
+.sillanmaa-page.is-night.aurora-peak .aurora-three {
+  opacity: 0.48;
 }
