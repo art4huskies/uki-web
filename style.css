@@ -889,7 +889,7 @@ h1,h2{
 
 /* Tuli se ukáže jen na dvě sekundy na vrcholu */
 .sillanmaa-page.is-night.tuli-visible .tuli-ghost {
-  opacity: 0.065;
+  opacity: 0.085;
   transform: translateX(-50%) scale(1);
 }
 
