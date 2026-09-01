@@ -871,7 +871,7 @@ h1,h2{
   position: absolute;
   top: 11%;
   left: 50%;
-  width: min(38vw, 230px);
+  width: min(48vw, 220px);
   height: auto;
 
   transform: translateX(-50%) scale(0.94);
