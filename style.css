@@ -856,47 +856,46 @@ h1,h2{
 .sillanmaa-page.is-night.aurora-peak .aurora-three {
   opacity: 0.48;
 }
-/* RYCHLÝ TEST POHYBU AURORY */
+/* FINÁLNÍ RYCHLOST POHYBU AURORY */
 .sillanmaa-page .aurora {
   transition:
-    opacity 6s ease-in-out,
-    transform 10s ease-in-out;
+    opacity 30s ease-in-out,
+    transform 38s ease-in-out;
 }
+
 /* =========================================================
    TULI V POLÁRNÍ ZÁŘI
    ========================================================= */
 
 .sillanmaa-page .tuli-ghost {
   position: absolute;
-  top: 5%;
+  top: 11%;
   left: 50%;
-  width: min(42vw, 560px);
+  width: min(22vw, 260px);
   height: auto;
 
-  transform: translateX(-50%) scale(0.98);
+  transform: translateX(-50%) scale(0.94);
 
   opacity: 0;
-  filter: blur(1.5px);
+  filter: blur(2px);
   mix-blend-mode: screen;
 
   pointer-events: none;
 
   transition:
-    opacity 0.25s ease-in-out,
+    opacity 0.35s ease-in-out,
     transform 2s ease-out;
 }
 
-/* Tuli se ukáže jen na vrcholu záře */
+/* Tuli se ukáže jen na dvě sekundy na vrcholu */
 .sillanmaa-page.is-night.tuli-visible .tuli-ghost {
-  opacity: 0.08;
+  opacity: 0.045;
   transform: translateX(-50%) scale(1);
 }
 
-/* Na mobilu o trochu větší */
 @media (max-width: 760px) {
   .sillanmaa-page .tuli-ghost {
-    top: 8%;
-    width: 72vw;
+    top: 12%;
+    width: min(38vw, 220px);
   }
 }
-
