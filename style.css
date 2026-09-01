@@ -862,4 +862,41 @@ h1,h2{
     opacity 6s ease-in-out,
     transform 10s ease-in-out;
 }
+/* =========================================================
+   TULI V POLÁRNÍ ZÁŘI
+   ========================================================= */
+
+.sillanmaa-page .tuli-ghost {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: min(42vw, 560px);
+  height: auto;
+
+  transform: translateX(-50%) scale(0.98);
+
+  opacity: 0;
+  filter: blur(1.5px);
+  mix-blend-mode: screen;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease-in-out,
+    transform 2s ease-out;
+}
+
+/* Tuli se ukáže jen na vrcholu záře */
+.sillanmaa-page.is-night.tuli-visible .tuli-ghost {
+  opacity: 0.08;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Na mobilu o trochu větší */
+@media (max-width: 760px) {
+  .sillanmaa-page .tuli-ghost {
+    top: 8%;
+    width: 72vw;
+  }
+}
 
