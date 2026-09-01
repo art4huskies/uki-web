@@ -43,15 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
     await wait(randomBetween(3000, 8000));
 
     while (true) {
-      // Záře se pomalu rozsvítí.
+      // Záře se začne pomalu objevovat.
       body.classList.add("aurora-visible");
-      await wait(randomBetween(25000, 35000));
+      await wait(randomBetween(35000, 45000));
 
       // Vrchol záře.
       body.classList.add("aurora-peak");
-      await wait(randomBetween(20000, 30000));
 
-      // Začne slábnout.
+      // Tuli bude vidět přesně 2 sekundy.
+      body.classList.add("tuli-visible");
+      await wait(2000);
+      body.classList.remove("tuli-visible");
+
+      // Hned potom začne záře blednout.
       body.classList.remove("aurora-peak");
       body.classList.remove("aurora-visible");
 
