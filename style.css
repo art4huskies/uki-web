@@ -877,7 +877,7 @@ h1,h2{
   transform: translateX(-50%) scale(0.94);
 
   opacity: 0;
-  filter: blur(0.34px);
+  filter: blur(0.14px);
   mix-blend-mode: screen;
 
   pointer-events: none;
@@ -889,7 +889,7 @@ h1,h2{
 
 /* Tuli se ukáže jen na dvě sekundy na vrcholu */
 .sillanmaa-page.is-night.tuli-visible .tuli-ghost {
-  opacity: 0.085;
+  opacity: 0.088;
   transform: translateX(-50%) scale(1);
 }
 
