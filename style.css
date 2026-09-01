@@ -856,3 +856,10 @@ h1,h2{
 .sillanmaa-page.is-night.aurora-peak .aurora-three {
   opacity: 0.48;
 }
+/* RYCHLÝ TEST POHYBU AURORY */
+.sillanmaa-page .aurora {
+  transition:
+    opacity 6s ease-in-out,
+    transform 10s ease-in-out;
+}
+
