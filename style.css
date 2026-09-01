@@ -501,3 +501,254 @@ h1,h2{
     padding:5px !important;
   }
 }
+/* =========================================================
+   SILLANMAA — NOČNÍ REŽIM
+   ========================================================= */
+
+.sillanmaa-page {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.sillanmaa-page .page {
+  position: relative;
+  z-index: 2;
+}
+
+/* Vrstva noční oblohy */
+.sillanmaa-page .night-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(47, 88, 111, 0.24),
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      #071926 0%,
+      #0a2230 48%,
+      #102c38 100%
+    );
+
+  transition: opacity 3s ease;
+}
+
+/* Zapnutí noci */
+.sillanmaa-page.is-night {
+  background: #071926;
+  color: #eef7f7;
+}
+
+.sillanmaa-page.is-night .night-sky {
+  opacity: 1;
+}
+
+.sillanmaa-page.is-night .page {
+  background: transparent;
+}
+
+/* Texty */
+.sillanmaa-page.is-night .brand {
+  color: #6fd1cf;
+}
+
+.sillanmaa-page.is-night .back,
+.sillanmaa-page.is-night .lead,
+.sillanmaa-page.is-night .campaign-note,
+.sillanmaa-page.is-night .travel-teaser p,
+.sillanmaa-page.is-night .footer {
+  color: rgba(232, 244, 246, 0.74);
+}
+
+.sillanmaa-page.is-night .kicker {
+  color: #6fd1cf;
+}
+
+.sillanmaa-page.is-night .crossroads-head h1,
+.sillanmaa-page.is-night .cross-card h2,
+.sillanmaa-page.is-night .travel-teaser h2 {
+  color: #f7fbfb;
+}
+
+/* Karty */
+.sillanmaa-page.is-night .cross-card {
+  background: rgba(7, 28, 40, 0.58);
+  border-color: rgba(112, 197, 201, 0.28);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sillanmaa-page.is-night .cross-card p {
+  color: rgba(232, 244, 246, 0.78);
+}
+
+.sillanmaa-page.is-night .cross-card::after {
+  border-color: rgba(111, 209, 207, 0.85);
+}
+
+.sillanmaa-page.is-night .cross-card:hover {
+  background: rgba(10, 39, 53, 0.68);
+  border-color: rgba(111, 209, 207, 0.48);
+}
+
+/* Travel blok */
+.sillanmaa-page.is-night .travel-teaser {
+  background: rgba(8, 30, 42, 0.42);
+  border-color: rgba(112, 197, 201, 0.2);
+}
+
+/* Tlačítka */
+.sillanmaa-page.is-night .button {
+  box-shadow: none;
+}
+
+.sillanmaa-page.is-night .button.secondary {
+  color: #eaf8f8;
+  border-color: rgba(111, 209, 207, 0.5);
+  background: rgba(8, 33, 45, 0.5);
+}
+
+/* =========================================================
+   POLÁRNÍ ZÁŘE
+   ========================================================= */
+
+.sillanmaa-page .aurora {
+  position: absolute;
+  top: -18vh;
+  left: -20vw;
+  width: 140vw;
+  height: 110vh;
+
+  opacity: 0;
+  filter: blur(28px);
+
+  transform-origin: center top;
+  transition:
+    opacity 42s ease-in-out,
+    transform 58s ease-in-out;
+}
+
+/* Hlavní zelenotyrkysová záře */
+.sillanmaa-page .aurora-one {
+  background:
+    radial-gradient(
+      ellipse at 38% 30%,
+      rgba(84, 221, 189, 0.34) 0%,
+      rgba(62, 182, 169, 0.22) 24%,
+      transparent 58%
+    );
+
+  transform:
+    rotate(-10deg)
+    scaleX(0.9)
+    translateY(-3%);
+}
+
+/* Druhý závoj */
+.sillanmaa-page .aurora-two {
+  background:
+    radial-gradient(
+      ellipse at 67% 34%,
+      rgba(87, 208, 189, 0.25) 0%,
+      rgba(54, 144, 159, 0.16) 30%,
+      transparent 61%
+    );
+
+  transform:
+    rotate(11deg)
+    scaleX(0.82)
+    translateY(5%);
+}
+
+/* Slabý studený nádech */
+.sillanmaa-page .aurora-three {
+  background:
+    radial-gradient(
+      ellipse at 50% 18%,
+      rgba(107, 128, 205, 0.14) 0%,
+      rgba(89, 104, 173, 0.08) 31%,
+      transparent 64%
+    );
+
+  transform:
+    rotate(-3deg)
+    scaleX(1.08);
+}
+
+/* Záře se začne objevovat */
+.sillanmaa-page.is-night.aurora-visible .aurora {
+  opacity: 1;
+}
+
+.sillanmaa-page.is-night.aurora-visible .aurora-one {
+  transform:
+    rotate(-6deg)
+    scaleX(1.04)
+    translateY(5%);
+}
+
+.sillanmaa-page.is-night.aurora-visible .aurora-two {
+  transform:
+    rotate(7deg)
+    scaleX(0.94)
+    translateY(-1%);
+}
+
+.sillanmaa-page.is-night.aurora-visible .aurora-three {
+  transform:
+    rotate(2deg)
+    scaleX(1.14)
+    translateY(3%);
+}
+
+/* Maximum — stále jemné, žádná diskotéka */
+.sillanmaa-page.is-night.aurora-peak .aurora-one {
+  opacity: 0.88;
+}
+
+.sillanmaa-page.is-night.aurora-peak .aurora-two {
+  opacity: 0.72;
+}
+
+.sillanmaa-page.is-night.aurora-peak .aurora-three {
+  opacity: 0.58;
+}
+
+/* Statická varianta při omezeném pohybu */
+.sillanmaa-page.is-night.aurora-static .aurora-one {
+  opacity: 0.22;
+}
+
+.sillanmaa-page.is-night.aurora-static .aurora-two {
+  opacity: 0.14;
+}
+
+.sillanmaa-page.is-night.aurora-static .aurora-three {
+  opacity: 0.08;
+}
+
+/* Mobil */
+@media (max-width: 760px) {
+  .sillanmaa-page .aurora {
+    top: -10vh;
+    left: -45vw;
+    width: 190vw;
+    height: 105vh;
+    filter: blur(24px);
+  }
+
+  .sillanmaa-page.is-night .cross-card {
+    background: rgba(7, 28, 40, 0.64);
+  }
+}
