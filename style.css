@@ -752,3 +752,13 @@ h1,h2{
     background: rgba(7, 28, 40, 0.64);
   }
 }
+/* TEST AURORY */
+.sillanmaa-page.is-night .aurora-one {
+  opacity: 1 !important;
+  background: radial-gradient(
+    ellipse at 50% 25%,
+    rgba(60, 255, 180, 0.9) 0%,
+    rgba(40, 220, 190, 0.55) 30%,
+    transparent 65%
+  ) !important;
+}
