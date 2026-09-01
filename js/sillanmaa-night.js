@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Tuli bude vidět přesně 2 sekundy.
       body.classList.add("tuli-visible");
-      await wait(2000);
+      await wait(4000);
       body.classList.remove("tuli-visible");
 
       // Hned potom začne záře blednout.
