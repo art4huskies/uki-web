@@ -896,6 +896,6 @@ h1,h2{
 @media (max-width: 760px) {
   .sillanmaa-page .tuli-ghost {
     top: 12%;
-    width: min(23.1vw, 273px);
+    width: min(55vw, 300px);
   }
 }
