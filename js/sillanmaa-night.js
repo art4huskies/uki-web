@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
-  const now = new Date();
-  const hour = now.getHours();
+ const now = new Date();
+const hour = now.getHours();
 
-  // Noční režim: 20:00–5:59
-  const isNight = hour >= 20 || hour < 6;
+const params = new URLSearchParams(window.location.search);
+const forceNight = params.get("night") === "1";
+
+// Noční režim: 20:00–5:59, nebo ručně přes ?night=1
+const isNight = forceNight || hour >= 20 || hour < 6;
 
   // Ruční test:
   // ?night=1 = vynutí noc
