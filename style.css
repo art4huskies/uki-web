@@ -899,3 +899,36 @@ h1,h2{
     width: min(55vw, 300px);
   }
 }
+/* Bílý los – vstup do Sillanmaa */
+.vstup-page .screen::before {
+  display: none;
+}
+
+.vstup-page .screen::after {
+  content: "";
+  position: absolute;
+  top: auto;
+  right: -70px;
+  bottom: -40px;
+  width: min(58vw, 680px);
+  height: min(78vh, 760px);
+  border-radius: 0;
+  transform: none;
+  box-shadow: none;
+  background: url("media/illustrations/image3.png") center 62% / auto 135% no-repeat;
+  opacity: 0.62;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .vstup-page .screen::after {
+    right: -120px;
+    bottom: -85px;
+    width: 430px;
+    height: 520px;
+    background-size: auto 140%;
+    background-position: center 62%;
+    opacity: 0.44;
+  }
+}
