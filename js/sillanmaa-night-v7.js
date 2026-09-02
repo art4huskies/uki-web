@@ -23,16 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const auroras = document.querySelectorAll(".aurora");
   if (!auroras.length) return;
 
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (reduceMotion) {
-    body.classList.add("aurora-static");
-    return;
-  }
-
-  const wait = (ms) =>
+    const wait = (ms) =>
     new Promise((resolve) => window.setTimeout(resolve, ms));
 
   const randomBetween = (min, max) =>
