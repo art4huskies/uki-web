@@ -186,15 +186,19 @@
   line-height: 1.5;
 }
 
-/* Předprodej — teplejší kontrast vůči ledovému webu */
+/* Předprodej — jemná lila z barevného světa Uki */
 .sillanmaa-page .campaign-story {
   max-width: 820px;
   margin: 62px auto 0;
   padding: 34px;
-  border: 1px solid rgba(174, 146, 83, .24);
+  border: 1px solid rgba(129, 113, 164, .25);
   border-radius: 26px;
-  background: linear-gradient(135deg, rgba(250,246,231,.92), rgba(244,236,210,.72));
-  box-shadow: 0 14px 42px rgba(77, 65, 34, .055);
+  background: linear-gradient(135deg, rgba(247,244,252,.95), rgba(230,225,242,.80));
+  box-shadow: 0 14px 42px rgba(69, 55, 93, .06);
+}
+
+.sillanmaa-page .campaign-story .kicker {
+  color: #75658f;
 }
 
 .sillanmaa-page .campaign-story h2 {
@@ -204,7 +208,7 @@
 
 .sillanmaa-page .campaign-story p {
   line-height: 1.68;
-  color: #536061;
+  color: #565a64;
 }
 
 .sillanmaa-page .campaign-actions {
@@ -277,15 +281,19 @@
 }
 
 .sillanmaa-page.is-night .campaign-story {
-  background: linear-gradient(135deg, rgba(38,43,41,.68), rgba(35,48,48,.54));
-  border-color: rgba(202,185,128,.24);
+  background: linear-gradient(135deg, rgba(34,31,49,.74), rgba(31,40,54,.60));
+  border-color: rgba(166,145,204,.28);
   box-shadow: none;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
+.sillanmaa-page.is-night .campaign-story .kicker {
+  color: #b9a6d6;
+}
+
 .sillanmaa-page.is-night .campaign-story p {
-  color: rgba(237,240,228,.78);
+  color: rgba(238,234,246,.82);
 }
 
 /* Tuli zůstává v horní obloze: velká karta začíná až pod úvodem */
