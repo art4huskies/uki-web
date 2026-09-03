@@ -84,21 +84,30 @@
 .book-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 0;
   margin: 20px 0 22px;
+  color: #4f696c;
+  font-size: .9rem;
+  font-weight: 650;
 }
 
 .book-meta span {
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 4px 11px;
-  border: 1px solid rgba(59,159,163,.24);
-  border-radius: 999px;
-  background: rgba(255,255,255,.62);
-  color: #4f696c;
-  font-size: .84rem;
-  font-weight: 650;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.book-meta span + span::before {
+  content: "❄";
+  margin: 0 12px;
+  color: var(--turq-dark);
+  font-size: .68em;
+  opacity: .72;
 }
 
 .book-hero-actions {
@@ -229,10 +238,12 @@
   color: rgba(232,244,246,.82);
 }
 
-.sillanmaa-page.is-night .book-meta span {
-  background: rgba(8,36,48,.48);
-  border-color: rgba(111,209,207,.26);
+.sillanmaa-page.is-night .book-meta {
   color: rgba(234,248,248,.82);
+}
+
+.sillanmaa-page.is-night .book-meta span + span::before {
+  color: #6fd1cf;
 }
 
 .sillanmaa-page.is-night .book-sample-link {
@@ -309,6 +320,10 @@
   .book-meta,
   .book-hero-actions {
     justify-content: center;
+  }
+
+  .book-meta span + span::before {
+    margin: 0 9px;
   }
 
   .sillanmaa-page .paths-grid {
