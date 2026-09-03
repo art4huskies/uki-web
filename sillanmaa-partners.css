@@ -1,0 +1,178 @@
+/* SILLANMAA — lidé a partneři na cestě ke knize */
+
+.sillanmaa-page .companions-section {
+  max-width: 920px;
+  margin: 66px auto 0;
+  text-align: center;
+}
+
+.sillanmaa-page .companions-section h2 {
+  margin: .3rem 0 .55rem;
+  font-size: clamp(1.85rem, 4vw, 2.6rem);
+}
+
+.sillanmaa-page .companions-intro {
+  max-width: 650px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.sillanmaa-page .companions-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 24px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 22px 26px;
+  border-top: 1px solid rgba(90, 116, 123, .16);
+  border-bottom: 1px solid rgba(90, 116, 123, .16);
+}
+
+.sillanmaa-page .companion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  padding: 7px 0;
+}
+
+.sillanmaa-page .companion strong {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.sillanmaa-page .companion span {
+  color: var(--muted);
+  font-size: .9rem;
+  text-align: right;
+}
+
+.sillanmaa-page .partners-heading {
+  margin-top: 42px;
+}
+
+.sillanmaa-page .partners-heading h3 {
+  margin: .25rem 0 .4rem;
+  font-family: Georgia, serif;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 500;
+}
+
+.sillanmaa-page .partners-heading p {
+  margin: 0 auto 18px;
+  color: var(--muted);
+}
+
+.sillanmaa-page .partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.sillanmaa-page .partner-card {
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  padding: 27px;
+  border-radius: 24px;
+  border: 1px solid rgba(78, 129, 137, .18);
+  background: rgba(255,255,255,.66);
+  box-shadow: 0 12px 34px rgba(32, 67, 73, .055);
+}
+
+.sillanmaa-page .partner-card.manmat {
+  background: linear-gradient(145deg, rgba(246,250,249,.94), rgba(225,241,238,.78));
+}
+
+.sillanmaa-page .partner-card.finland {
+  background: linear-gradient(145deg, rgba(247,246,252,.94), rgba(229,228,244,.78));
+  border-color: rgba(126, 115, 163, .20);
+}
+
+.sillanmaa-page .partner-card .partner-label {
+  margin-bottom: 9px;
+  color: var(--turq-dark);
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sillanmaa-page .partner-card.finland .partner-label {
+  color: #76658f;
+}
+
+.sillanmaa-page .partner-card h3 {
+  margin: 0 0 9px;
+  font-family: Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.sillanmaa-page .partner-card p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.sillanmaa-page .partner-card .button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.sillanmaa-page.is-night .companions-section h2,
+.sillanmaa-page.is-night .companion strong,
+.sillanmaa-page.is-night .partners-heading h3,
+.sillanmaa-page.is-night .partner-card h3 {
+  color: #f3fafa;
+}
+
+.sillanmaa-page.is-night .companions-intro,
+.sillanmaa-page.is-night .companion span,
+.sillanmaa-page.is-night .partners-heading p,
+.sillanmaa-page.is-night .partner-card p {
+  color: rgba(232,244,246,.72);
+}
+
+.sillanmaa-page.is-night .companions-list {
+  border-color: rgba(119, 198, 201, .18);
+}
+
+.sillanmaa-page.is-night .partner-card.manmat {
+  background: linear-gradient(145deg, rgba(7,32,43,.58), rgba(20,55,58,.48));
+  border-color: rgba(111,209,207,.22);
+  box-shadow: none;
+}
+
+.sillanmaa-page.is-night .partner-card.finland {
+  background: linear-gradient(145deg, rgba(28,29,47,.62), rgba(44,43,67,.50));
+  border-color: rgba(166,145,204,.24);
+  box-shadow: none;
+}
+
+.sillanmaa-page.is-night .partner-card .partner-label {
+  color: #79d6d3;
+}
+
+.sillanmaa-page.is-night .partner-card.finland .partner-label {
+  color: #b9a6d6;
+}
+
+@media (max-width: 760px) {
+  .sillanmaa-page .companions-list,
+  .sillanmaa-page .partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sillanmaa-page .companions-list {
+    padding: 18px 10px;
+  }
+
+  .sillanmaa-page .companion {
+    gap: 10px;
+  }
+}
