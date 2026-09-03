@@ -932,3 +932,47 @@ h1,h2{
     opacity: 0.44;
   }
 }
+/* --- O autorce --- */
+.author-medallion{
+  margin-top:64px;
+}
+
+.author-box{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:32px;
+  align-items:start;
+  margin-top:22px;
+}
+
+.author-photo{
+  width:100%;
+  max-width:260px;
+}
+
+.author-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:18px;
+  border:1px solid rgba(80,133,140,.18);
+  box-shadow:0 14px 34px rgba(20,48,54,.10);
+}
+
+.author-text h2{
+  margin-top:0;
+}
+
+@media (max-width:760px){
+  .author-box{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .author-photo{
+    max-width:220px;
+    margin:0 auto;
+  }
+}
