@@ -1,0 +1,52 @@
+.book-support {
+  max-width: 720px;
+  margin: 58px auto 12px;
+  text-align: center;
+}
+
+.book-support h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.book-support p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.book-support .support-bookmark {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  width: min(100%, 390px);
+  padding: 14px 48px 14px 28px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(108, 206, 208, .92);
+  color: #173b40;
+  font-weight: 750;
+  text-decoration: none;
+  clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
+  box-shadow: 0 7px 14px rgba(40, 70, 77, .08);
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.book-support .support-bookmark:hover,
+.book-support .support-bookmark:focus-visible {
+  transform: translateX(7px);
+  filter: brightness(1.04);
+}
+
+@media (max-width: 600px) {
+  .book-support {
+    margin-top: 46px;
+  }
+
+  .book-support .support-bookmark {
+    width: 92%;
+  }
+}
