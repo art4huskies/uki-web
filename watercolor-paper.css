@@ -1,27 +1,43 @@
-/* Jemná bílá akvarelová textura — pouze stránka Ilustrace */
+/* Bílý akvarelový papír — pouze stránka Ilustrace.
+   Bez pravidelných čar a bez vintage tónu. */
 .illustrations-paper {
   background-color: #fff;
   background-image:
-    radial-gradient(ellipse at 18% 22%, rgba(91, 116, 120, .030) 0, rgba(91, 116, 120, .012) 24%, transparent 48%),
-    radial-gradient(ellipse at 78% 64%, rgba(85, 109, 113, .025) 0, rgba(85, 109, 113, .010) 27%, transparent 52%),
-    repeating-linear-gradient(7deg, rgba(64, 85, 89, .018) 0 1px, transparent 1px 7px),
-    repeating-linear-gradient(96deg, rgba(64, 85, 89, .012) 0 1px, transparent 1px 11px);
+    radial-gradient(ellipse 72% 48% at 14% 18%, rgba(70, 91, 95, .028), transparent 68%),
+    radial-gradient(ellipse 54% 72% at 86% 38%, rgba(70, 91, 95, .022), transparent 72%),
+    radial-gradient(ellipse 68% 46% at 42% 86%, rgba(70, 91, 95, .020), transparent 70%);
   background-attachment: fixed;
 }
 
-/* Měkké nepravidelné zrno bez béžového/vintage tónu. */
+/* Nepravidelné jemné zrno: velké, vzájemně nesoudělné vzory,
+   aby oko nevnímalo opakující se mřížku. */
 .illustrations-paper::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: .32;
+  opacity: .34;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(36, 62, 66, .045) 0 .55px, transparent .8px),
-    radial-gradient(circle at 70% 55%, rgba(36, 62, 66, .035) 0 .5px, transparent .75px),
-    radial-gradient(circle at 42% 82%, rgba(36, 62, 66, .030) 0 .45px, transparent .7px);
-  background-size: 19px 23px, 29px 31px, 37px 41px;
+    radial-gradient(ellipse at 11% 23%, rgba(45, 65, 68, .055) 0 .7px, transparent 1.6px),
+    radial-gradient(ellipse at 67% 41%, rgba(45, 65, 68, .040) 0 .6px, transparent 1.5px),
+    radial-gradient(ellipse at 38% 79%, rgba(45, 65, 68, .035) 0 .8px, transparent 1.8px),
+    radial-gradient(ellipse at 83% 88%, rgba(45, 65, 68, .030) 0 .5px, transparent 1.4px);
+  background-size: 137px 173px, 211px 157px, 179px 233px, 263px 197px;
+  background-position: 7px 19px, 43px 71px, 91px 31px, 17px 113px;
+}
+
+.illustrations-paper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .22;
+  background:
+    radial-gradient(ellipse 22% 8% at 27% 31%, rgba(58, 78, 81, .045), transparent 72%),
+    radial-gradient(ellipse 17% 11% at 71% 66%, rgba(58, 78, 81, .038), transparent 74%),
+    radial-gradient(ellipse 12% 20% at 48% 91%, rgba(58, 78, 81, .030), transparent 76%);
 }
 
 .illustrations-paper .page {
