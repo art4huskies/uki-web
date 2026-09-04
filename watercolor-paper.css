@@ -1,43 +1,36 @@
 /* Bílý akvarelový papír — pouze stránka Ilustrace.
-   Bez pravidelných čar a bez vintage tónu. */
+   Skutečně organická textura bez lineárních/repeating vzorů. */
 .illustrations-paper {
-  background-color: #fff;
-  background-image:
-    radial-gradient(ellipse 72% 48% at 14% 18%, rgba(70, 91, 95, .028), transparent 68%),
-    radial-gradient(ellipse 54% 72% at 86% 38%, rgba(70, 91, 95, .022), transparent 72%),
-    radial-gradient(ellipse 68% 46% at 42% 86%, rgba(70, 91, 95, .020), transparent 70%);
-  background-attachment: fixed;
+  background: #fff;
 }
 
-/* Nepravidelné jemné zrno: velké, vzájemně nesoudělné vzory,
-   aby oko nevnímalo opakující se mřížku. */
+/* Jemný reliéf papíru vytvořený pomocí SVG turbulence.
+   Vzor je náhodný/organický, takže nepůsobí jako mřížka. */
 .illustrations-paper::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: .34;
-  background-image:
-    radial-gradient(ellipse at 11% 23%, rgba(45, 65, 68, .055) 0 .7px, transparent 1.6px),
-    radial-gradient(ellipse at 67% 41%, rgba(45, 65, 68, .040) 0 .6px, transparent 1.5px),
-    radial-gradient(ellipse at 38% 79%, rgba(45, 65, 68, .035) 0 .8px, transparent 1.8px),
-    radial-gradient(ellipse at 83% 88%, rgba(45, 65, 68, .030) 0 .5px, transparent 1.4px);
-  background-size: 137px 173px, 211px 157px, 179px 233px, 263px 197px;
-  background-position: 7px 19px, 43px 71px, 91px 31px, 17px 113px;
+  opacity: .20;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cfilter id='paper' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.055 0.11' numOctaves='5' seed='17' stitchTiles='stitch' result='noise'/%3E%3CfeColorMatrix in='noise' type='saturate' values='0' result='gray'/%3E%3CfeDiffuseLighting in='gray' surfaceScale='1.15' diffuseConstant='1.05' lighting-color='%23ffffff' result='light'%3E%3CfeDistantLight azimuth='225' elevation='48'/%3E%3C/feDiffuseLighting%3E%3CfeBlend in='gray' in2='light' mode='multiply'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23f8f8f6'/%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.62'/%3E%3C/svg%3E");
+  background-size: 320px 320px;
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
 }
 
+/* Velmi jemné nestejnoměrné zesvětlení povrchu, aby papír nebyl plochý. */
 .illustrations-paper::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: .22;
+  opacity: .12;
   background:
-    radial-gradient(ellipse 22% 8% at 27% 31%, rgba(58, 78, 81, .045), transparent 72%),
-    radial-gradient(ellipse 17% 11% at 71% 66%, rgba(58, 78, 81, .038), transparent 74%),
-    radial-gradient(ellipse 12% 20% at 48% 91%, rgba(58, 78, 81, .030), transparent 76%);
+    radial-gradient(ellipse 46% 24% at 18% 15%, rgba(255,255,255,.85), transparent 72%),
+    radial-gradient(ellipse 38% 22% at 82% 42%, rgba(232,236,235,.55), transparent 74%),
+    radial-gradient(ellipse 52% 28% at 46% 88%, rgba(238,241,240,.50), transparent 76%);
 }
 
 .illustrations-paper .page {
