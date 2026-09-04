@@ -1,0 +1,76 @@
+/* Pointa / Cesta ke knize — malé záložky místo pilulkových tlačítek */
+.sillanmaa-page .campaign-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  max-width: 680px;
+  margin: 24px auto 0;
+}
+
+.sillanmaa-page .campaign-actions .campaign-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 64px;
+  padding: 14px 56px 14px 30px;
+  border: 0;
+  border-radius: 0;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: clamp(1.12rem, 2.5vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #243f45;
+  background: rgba(112, 205, 207, .86);
+  clip-path: polygon(0 0, 94% 0, 100% 50%, 94% 100%, 0 100%);
+  box-shadow: 0 7px 14px rgba(40, 70, 77, .08);
+  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+.sillanmaa-page .campaign-actions .campaign-button-alt {
+  width: 96%;
+  align-self: flex-start;
+  margin-left: 2%;
+  background: rgba(159, 190, 214, .82);
+  color: #243f45;
+}
+
+.sillanmaa-page .campaign-actions .campaign-button:hover,
+.sillanmaa-page .campaign-actions .campaign-button:focus-visible {
+  transform: translateX(8px);
+  filter: saturate(1.04);
+  box-shadow: 0 10px 20px rgba(40, 70, 77, .12);
+}
+
+.sillanmaa-page .campaign-actions .campaign-note {
+  width: 100%;
+  margin: 10px auto 0;
+  text-align: center;
+}
+
+.sillanmaa-page.is-night .campaign-actions .campaign-button {
+  background: rgba(74, 151, 158, .88);
+  color: #f3fbfb;
+}
+
+.sillanmaa-page.is-night .campaign-actions .campaign-button-alt {
+  background: rgba(78, 103, 143, .88);
+  color: #f3fbfb;
+}
+
+@media (max-width: 760px) {
+  .sillanmaa-page .campaign-actions {
+    gap: 9px;
+  }
+
+  .sillanmaa-page .campaign-actions .campaign-button {
+    min-height: 60px;
+    padding: 13px 46px 13px 24px;
+    font-size: 1.08rem;
+  }
+
+  .sillanmaa-page .campaign-actions .campaign-button-alt {
+    width: 97%;
+    margin-left: 1%;
+  }
+}
