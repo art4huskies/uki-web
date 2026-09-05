@@ -6,24 +6,27 @@
   <title>UKI — vstup</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="button-bookmarks.css?v=2">
+  <style>
+    .uki-rune{
+      width:min(58vw,260px);
+      aspect-ratio:1454/958;
+      margin:0 auto 34px;
+      background:#3b9fa3;
+      -webkit-mask:url('assets/uki-runa.svg') center/contain no-repeat;
+      mask:url('assets/uki-runa.svg') center/contain no-repeat;
+      opacity:.78;
+      transform:rotate(-.6deg);
+      filter:drop-shadow(0 2px 7px rgba(59,159,163,.12));
+    }
+    @media (max-width:560px){
+      .uki-rune{width:min(68vw,220px);margin-bottom:28px}
+    }
+  </style>
 </head>
 <body class="vstup-page">
 <main class="screen">
   <div class="motto fade-in">
-    <div class="uki-rune" aria-hidden="true">
-      <svg viewBox="0 0 100 100" role="img">
-        <g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M50 18 L50 34 M50 18 L42 10 M50 18 L58 10"/>
-          <path d="M50 34 L30 53 L50 73 L70 53 Z"/>
-          <path d="M34 49 L20 49 L14 43 M20 49 L14 55 M66 49 L80 49 L86 43 M80 49 L86 55"/>
-          <path d="M36 39 L29 31 M29 31 L22 31 M29 31 L29 23 M64 39 L71 31 M71 31 L78 31 M71 31 L71 23"/>
-          <path d="M36 67 L29 75 M29 75 L22 75 M29 75 L29 83 M64 67 L71 75 M71 75 L78 75 M71 75 L71 83"/>
-          <path d="M50 73 L50 88 M50 88 L43 94 M50 88 L57 94"/>
-          <path d="M8 49 L4 45 L0 49 L4 53 Z M92 49 L96 45 L100 49 L96 53 Z"/>
-          <path d="M50 42 L50 64 M40 53 L60 53 M43 46 L57 60 M57 46 L43 60" stroke-width="3.2"/>
-        </g>
-      </svg>
-    </div>
+    <div class="uki-rune" aria-label="Runa Uki"></div>
     <h1>Můžeš se bát.</h1>
     <a class="button secondary next" href="sillanmaa.html">… a jít dál →</a>
   </div>
