@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 199" role="img" aria-label="CK Objev Finsko a Laponsko">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#43c7ee"/>
+      <stop offset="1" stop-color="#49d7ee"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8be92c"/>
+      <stop offset="1" stop-color="#24ed00"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="199" fill="#fff"/>
+  <rect x="10" y="10" width="179" height="179" fill="url(#blue)"/>
+  <path d="M78 10 C93 56 94 112 69 189 L189 189 L189 10 Z" fill="#41e900" opacity=".98"/>
+  <path d="M144 10 C120 57 125 113 166 189 L189 189 L189 10 Z" fill="#7be900" opacity=".72"/>
+  <text x="214" y="100" font-family="Arial,Helvetica,sans-serif" font-size="54" font-weight="700" fill="#43c7ee">CK</text>
+  <text x="214" y="164" font-family="Arial,Helvetica,sans-serif" font-size="54" font-weight="700" fill="#43c7ee">objev finsko a </text>
+  <text x="569" y="164" font-family="Arial,Helvetica,sans-serif" font-size="54" font-weight="700" fill="#35e600">laponsko</text>
+</svg>
