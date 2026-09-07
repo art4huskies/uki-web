@@ -6,36 +6,31 @@
   <title>UKI — Objev Finsko a Laponsko</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .travel-partner-head{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:32px;align-items:center;margin:2.4rem 0 1.6rem}
-    .travel-partner-logo{width:100%;max-width:220px;border-radius:18px;display:block;box-shadow:0 12px 30px rgba(20,48,54,.10)}
+    .partner-logo-wrap{text-align:center;margin:1.6rem 0 2rem}
+    .partner-logo{width:min(100%,520px);height:auto;display:inline-block;border-radius:18px;box-shadow:0 12px 30px rgba(20,48,54,.10)}
     .travel-copy{max-width:780px;font-size:1.06rem;line-height:1.8;color:#354b4e}
     .travel-copy p{margin:0 0 1.25rem}
-    @media(max-width:640px){.travel-partner-head{grid-template-columns:1fr}.travel-partner-logo{max-width:180px}}
+    @media(max-width:640px){.partner-logo{width:min(100%,360px)}}
   </style>
 </head>
 <body>
 <div class="page">
   <header class="topbar">
     <a class="brand" href="index.html">UKI</a>
-    <a class="button secondary" href="sillanmaa.html">← Zpět do Sillanmaa</a>
+    <a class="button secondary" href="sillanmaa.html">← Zpět na rozcestí Sillanmaa</a>
   </header>
 
   <main class="content fade-in travel-page">
-    <div class="kicker">Partner knihy</div>
-    <h1>Chcete poznat svět Uki doopravdy?</h1>
-    <p class="lead">Svět Uki vznikl z opravdového Severu — z nekonečných lesů a jezer, zimních cest, sobů a psích spřežení.</p>
+    <div class="kicker">Partner na cestě ke knize</div>
+    <h1>Objev Finsko a Laponsko</h1>
+    <p class="lead">Ze světa Uki na skutečný Sever.</p>
 
-    <div class="quote">Sillanmaa sice na mapě nenajdete. Krajinu, ze které vyrostla, ale ano.</div>
+    <div class="partner-logo-wrap">
+      <img class="partner-logo" src="assets/ck-objev-finsko-laponsko.jpg" alt="CK Objev Finsko a Laponsko">
+    </div>
 
     <section class="sample-box">
-      <div class="travel-partner-head">
-        <div>
-          <h2>Objevte skutečné Finsko a Laponsko</h2>
-          <p>Partner knihy <em>Uki a ztracení psi</em></p>
-        </div>
-        <img class="travel-partner-logo" src="assets/ck-objev-finsko-laponsko.jpg" alt="CK Objev Finsko a Laponsko">
-      </div>
-
+      <h2>Proč k Uki patří</h2>
       <div class="travel-copy">
         <p>Jsme <strong>CK Objev Finsko a Laponsko</strong>, cestovní kancelář specializující se na cesty do nejsevernějších částí Evropy.</p>
 
@@ -51,11 +46,7 @@
       </div>
     </section>
 
-    <div class="cards">
-      <div class="card"><h2>Psí spřežení</h2><p>Vydejte se zasněženou krajinou se psy, kteří k Severu i světu Uki neodmyslitelně patří.</p></div>
-      <div class="card"><h2>Sobi a Laponsko</h2><p>Poznejte krajinu za polárním kruhem, její obyvatele i místa, kde jsou sobi přirozenou součástí života.</p></div>
-      <div class="card"><h2>Polární záře</h2><p>Vydejte se na Sever v době, kdy dlouhá zimní noc nabízí šanci spatřit ji na vlastní oči.</p></div>
-    </div>
+    <div class="quote">Sillanmaa sice na mapě nenajdete. Krajinu, ze které vyrostla, ale ano.</div>
   </main>
 
   <footer class="footer">Ze Sillanmaa na skutečný Sever.</footer>
