@@ -11,12 +11,10 @@
     .travel-copy{max-width:780px;font-size:1.06rem;line-height:1.8;color:#354b4e}
     .travel-copy p{margin:0 0 1.25rem}
     .snow-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:9999}
-    .snowflake{position:absolute;top:-24px;border-radius:50%;background:rgba(180,205,214,.92);box-shadow:0 0 3px rgba(55,85,95,.28);animation:fall linear forwards}
-    @keyframes fall{0%{transform:translate3d(0,0,0);opacity:.95}100%{transform:translate3d(var(--drift),110vh,0);opacity:.35}}
+    .snowflake{position:absolute;top:-20px;border-radius:50%;will-change:transform,opacity}
+    .snowflake.cool{background:rgba(174,199,209,.88);box-shadow:0 0 3px rgba(55,85,95,.22)}
+    .snowflake.white{background:rgba(255,255,255,.98);box-shadow:0 0 4px rgba(110,140,150,.18)}
     @media(max-width:640px){.partner-logo{width:100%;max-width:620px}}
-    @media(prefers-reduced-motion:reduce){
-      .snowflake{animation-name:fall!important;animation-timing-function:linear!important;animation-fill-mode:forwards!important}
-    }
   </style>
 </head>
 <body>
@@ -62,26 +60,57 @@
 (function(){
   const layer=document.querySelector('.snow-layer');
   if(!layer)return;
-  const mobile=window.matchMedia('(max-width:640px)').matches;
-  function snowBurst(){
-    const count=mobile?14:24;
-    for(let i=0;i<count;i++){
-      const f=document.createElement('span');
-      f.className='snowflake';
-      const size=(Math.random()*4+3).toFixed(1);
-      f.style.width=size+'px';
-      f.style.height=size+'px';
-      f.style.left=(Math.random()*100)+'vw';
-      f.style.setProperty('--drift',((Math.random()*110)-55)+'px');
-      f.style.animationDuration=(Math.random()*4+7)+'s';
-      f.style.animationDelay=(Math.random()*1.2)+'s';
-      layer.appendChild(f);
-      setTimeout(()=>f.remove(),13000);
+
+  const isMobile=()=>window.matchMedia('(max-width:640px)').matches;
+
+  function makeFlake(){
+    const f=document.createElement('span');
+    const white=Math.random()<0.38;
+    f.className='snowflake '+(white?'white':'cool');
+
+    const size=Math.random()*4.5+2.5;
+    const x0=Math.random()*window.innerWidth;
+    const duration=Math.random()*3500+7000;
+    const delay=Math.random()*1000;
+    const sway=Math.random()*28+12;
+    const phase=Math.random()*Math.PI*2;
+    const freq=Math.random()*1.25+1.1;
+    const drift=(Math.random()-.5)*70;
+    const opacity=white ? (Math.random()*.18+.72) : (Math.random()*.22+.48);
+
+    f.style.width=size+'px';
+    f.style.height=size+'px';
+    f.style.left='0';
+    f.style.opacity='0';
+    layer.appendChild(f);
+
+    const start=performance.now()+delay;
+    function frame(now){
+      if(now<start){requestAnimationFrame(frame);return;}
+      const t=(now-start)/duration;
+      if(t>=1){f.remove();return;}
+
+      const y=-22+t*(window.innerHeight+50);
+      const wave=Math.sin(t*Math.PI*2*freq+phase)*sway;
+      const x=x0+wave+drift*t;
+      const fadeIn=Math.min(1,t/0.1);
+      const fadeOut=Math.min(1,(1-t)/0.14);
+      f.style.opacity=(opacity*Math.min(fadeIn,fadeOut)).toFixed(3);
+      f.style.transform=`translate3d(${x}px,${y}px,0) rotate(${wave*0.35}deg)`;
+      requestAnimationFrame(frame);
     }
+    requestAnimationFrame(frame);
   }
+
+  function snowBurst(){
+    const count=isMobile()?14:28;
+    for(let i=0;i<count;i++)makeFlake();
+  }
+
   function schedule(){
     setTimeout(()=>{snowBurst();schedule();},15000+Math.random()*5000);
   }
+
   setTimeout(snowBurst,3000);
   schedule();
 })();
