@@ -10,10 +10,15 @@
     .partner-logo{width:min(100%,620px);height:auto;display:inline-block}
     .travel-copy{max-width:780px;font-size:1.06rem;line-height:1.8;color:#354b4e}
     .travel-copy p{margin:0 0 1.25rem}
+    .snow-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
+    .snowflake{position:absolute;top:-24px;border-radius:50%;background:rgba(255,255,255,.82);filter:blur(.2px);animation:fall linear forwards}
+    @keyframes fall{to{transform:translate3d(var(--drift),110vh,0);opacity:.15}}
     @media(max-width:640px){.partner-logo{width:100%;max-width:620px}}
+    @media(prefers-reduced-motion:reduce){.snow-layer{display:none}}
   </style>
 </head>
 <body>
+<div class="snow-layer" aria-hidden="true"></div>
 <div class="page">
   <header class="topbar">
     <a class="brand" href="index.html">UKI</a>
@@ -51,5 +56,34 @@
 
   <footer class="footer">Ze Sillanmaa na skutečný Sever.</footer>
 </div>
+<script>
+(function(){
+  const layer=document.querySelector('.snow-layer');
+  if(!layer||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const mobile=window.matchMedia('(max-width:640px)').matches;
+  function snowBurst(){
+    const count=mobile?8:14;
+    for(let i=0;i<count;i++){
+      const f=document.createElement('span');
+      f.className='snowflake';
+      const size=(Math.random()*3+2).toFixed(1);
+      f.style.width=size+'px';
+      f.style.height=size+'px';
+      f.style.left=(Math.random()*100)+'vw';
+      f.style.opacity=(Math.random()*.35+.35).toFixed(2);
+      f.style.setProperty('--drift',((Math.random()*80)-40)+'px');
+      f.style.animationDuration=(Math.random()*4+7)+'s';
+      f.style.animationDelay=(Math.random()*2)+'s';
+      layer.appendChild(f);
+      setTimeout(()=>f.remove(),13000);
+    }
+  }
+  function schedule(){
+    setTimeout(()=>{snowBurst();schedule();},20000+Math.random()*20000);
+  }
+  setTimeout(snowBurst,5000);
+  schedule();
+})();
+</script>
 </body>
 </html>
