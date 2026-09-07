@@ -1,0 +1,37 @@
+/* Velká a čitelná ukázka knihy v Heyzine */
+.uki-flipbook {
+  width: 100%;
+  margin: 1.4rem 0 .7rem;
+  overflow: hidden;
+  border: 1px solid rgba(30, 48, 55, .14);
+  border-radius: 18px;
+  background: #eef5f4;
+  box-shadow: 0 14px 34px rgba(20, 48, 54, .10);
+}
+
+.uki-flipbook .fp-iframe {
+  display: block;
+  width: 100%;
+  height: clamp(620px, 78vh, 900px);
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .uki-flipbook {
+    border-radius: 14px;
+    margin-top: 1rem;
+  }
+
+  .uki-flipbook .fp-iframe {
+    height: 72svh;
+    min-height: 520px;
+    max-height: 720px;
+  }
+}
+
+@media (max-width: 420px) {
+  .uki-flipbook .fp-iframe {
+    height: 70svh;
+    min-height: 480px;
+  }
+}
