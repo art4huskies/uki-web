@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="sillanmaa-home.css?v=5">
   <link rel="stylesheet" href="sillanmaa-partners.css?v=1">
   <link rel="stylesheet" href="campaign-bookmarks.css?v=1">
+  <script>try{if(new URLSearchParams(location.search).get('entry')==='fog'&&sessionStorage.getItem('uki-fog-arrival')==='1'){document.documentElement.classList.add('uki-fog-arrival')}}catch(e){}</script>
 </head>
 <body class="sillanmaa-page">
+<div class="entry-fog-arrival" id="entry-fog-arrival" aria-hidden="true"></div>
 
 <div class="night-sky" aria-hidden="true"><div class="aurora aurora-one"></div><div class="aurora aurora-two"></div><div class="aurora aurora-three"></div><img class="tuli-ghost" src="assets/tuli-aurora.png" alt=""></div>
 <div class="page">
@@ -51,6 +53,16 @@
     trail.classList.add('is-walking');
   }
   window.addEventListener('pageshow',function(){setTimeout(walk,120);});
+})();
+</script>
+<script>
+(function(){
+  const root=document.documentElement;
+  if(!root.classList.contains('uki-fog-arrival'))return;
+  const fog=document.getElementById('entry-fog-arrival');
+  if(!fog)return;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>fog.classList.add('is-opening')));
+  window.setTimeout(()=>{root.classList.remove('uki-fog-arrival');fog.remove()},2500);
 })();
 </script>
 </body></html>
