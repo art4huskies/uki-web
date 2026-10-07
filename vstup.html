@@ -3,32 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>UKI — vstup</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#081720">
+  <title>Vstup do Sillanmaa — Uki</title>
+  <link rel="stylesheet" href="style.css?v=6">
   <link rel="stylesheet" href="button-bookmarks.css?v=2">
-  <style>
-    .uki-rune{
-      width:92px;
-      aspect-ratio:1454/958;
-      margin:0 auto 18px;
-      background:#3b9fa3;
-      -webkit-mask:url('assets/uki-runa.svg') center/contain no-repeat;
-      mask:url('assets/uki-runa.svg') center/contain no-repeat;
-      opacity:.34;
-      transform:rotate(-.6deg);
-    }
-    @media (max-width:560px){
-      .uki-rune{width:78px;margin-bottom:16px;opacity:.30}
-    }
-  </style>
 </head>
 <body class="vstup-page">
-<main class="screen">
-  <div class="motto fade-in">
-    <div class="uki-rune" aria-label="Runa Uki"></div>
-    <h1>Můžeš se bát.</h1>
-    <a class="button secondary next" href="sillanmaa.html">… a jít dál →</a>
+<main class="screen" aria-labelledby="entry-title">
+  <div class="entry-snow" aria-hidden="true"></div>
+  <div class="entry-fog" aria-hidden="true"><span class="entry-fog__bank"></span></div>
+  <div class="motto">
+    <div class="uki-rune" aria-hidden="true"></div>
+    <h1 class="entry-motto-first" id="entry-title">Můžeš se bát…</h1>
+    <a class="entry-next" id="entry-next" href="sillanmaa.html?entry=fog" aria-disabled="true" tabindex="-1">…a jít dál.</a>
   </div>
 </main>
+<script>
+(function(){
+  const body=document.body,next=document.getElementById('entry-next');
+  if(!next)return;
+  body.classList.add('js');
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveal=()=>{
+    next.classList.add('is-visible');
+    next.removeAttribute('aria-disabled');
+    next.removeAttribute('tabindex');
+    window.setTimeout(()=>next.classList.add('is-ready'),reduced?0:720);
+  };
+  window.setTimeout(reveal,reduced?0:1900);
+  next.addEventListener('click',function(event){
+    if(next.getAttribute('aria-disabled')==='true'){event.preventDefault();return;}
+    event.preventDefault();
+    body.classList.add('is-leaving');
+    try{sessionStorage.setItem('uki-fog-arrival','1')}catch(e){}
+    window.setTimeout(()=>{window.location.href=next.href},reduced?0:360);
+  });
+})();
+</script>
 </body>
 </html>
