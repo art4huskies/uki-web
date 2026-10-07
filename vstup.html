@@ -26,11 +26,13 @@
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveal=()=>{
     next.classList.add('is-visible');
-    next.removeAttribute('aria-disabled');
-    next.removeAttribute('tabindex');
-    window.setTimeout(()=>next.classList.add('is-ready'),reduced?0:720);
+    window.setTimeout(()=>{
+      next.classList.add('is-ready');
+      next.removeAttribute('aria-disabled');
+      next.removeAttribute('tabindex');
+    },reduced?0:720);
   };
-  window.setTimeout(reveal,reduced?0:1900);
+  window.setTimeout(reveal,reduced?0:2500);
   next.addEventListener('click',function(event){
     if(next.getAttribute('aria-disabled')==='true'){event.preventDefault();return;}
     event.preventDefault();
