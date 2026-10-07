@@ -990,15 +990,15 @@ h1,h2{
 .vstup-page .uki-rune{opacity:.34;filter:brightness(1.55)}
 .entry-motto-first{margin:0 0 18px;font-family:Georgia,serif;font-weight:400;font-size:clamp(2.3rem,8vw,5.15rem);line-height:1.08;letter-spacing:-.025em;opacity:1}
 .entry-next{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:9px 18px;border:1px solid transparent;border-radius:999px;color:#f3fbfa;font-family:Georgia,serif;font-size:clamp(1.55rem,5vw,2.45rem);line-height:1.2;text-shadow:inherit;text-decoration:none;opacity:1;transition:opacity .8s ease,background .5s ease,color .5s ease,transform .25s ease,box-shadow .5s ease,border-color .5s ease}
-.vstup-page.js .entry-motto-first{animation:entry-first .7s ease .35s both}
+.vstup-page.js .entry-motto-first{animation:entry-first 2.1s ease .35s both}
 .vstup-page.js .entry-next{opacity:0;pointer-events:none;transform:translateY(8px)}
-.vstup-page.js .entry-next.is-visible{opacity:1;pointer-events:auto;transform:none}
-.vstup-page.js .entry-next.is-ready{min-height:52px;padding:10px 24px;border-color:#87dadd;background:#65c6c8;color:#102c32;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.05rem;font-weight:750;text-shadow:none;box-shadow:0 8px 28px rgba(2,17,23,.24)}
+.vstup-page.js .entry-next.is-visible{opacity:1;pointer-events:none;transform:none}
+.vstup-page.js .entry-next.is-ready{pointer-events:auto;min-height:52px;padding:10px 24px;border-color:#87dadd;background:#65c6c8;color:#102c32;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.05rem;font-weight:750;text-shadow:none;box-shadow:0 8px 28px rgba(2,17,23,.24)}
 .vstup-page.js .entry-next.is-ready:hover{background:#82d9d9;transform:translateY(-2px)}
 .vstup-page.js.is-leaving .entry-fog{opacity:1;transform:scale(1.12)}
 .vstup-page.js.is-leaving .entry-snow{opacity:.16}
 .entry-next:focus-visible{outline:3px solid #fff;outline-offset:5px}
-@keyframes entry-first{0%{opacity:0;filter:blur(7px);transform:translateY(8px)}100%{opacity:1;filter:blur(0);transform:none}}
+@keyframes entry-first{0%{opacity:0;filter:blur(7px);transform:translateY(8px)}25%,57%{opacity:1;filter:blur(0);transform:none}100%{opacity:0;filter:blur(6px);transform:translateY(-5px)}}
 @keyframes entry-fog-drift{0%{transform:translate3d(-4%,3%,0) scale(.94)}100%{transform:translate3d(7%,-5%,0) scale(1.08)}}
 @keyframes entry-snow-drift{from{background-position:12px 8px,42px 54px,91px 28px}to{background-position:28px 180px,10px 310px,144px 250px}}
 .entry-fog-arrival{display:none}
