@@ -981,8 +981,8 @@ h1,h2{
 .vstup-page{min-height:100vh;color:#edf8f7;background:#07131b}
 .vstup-page .screen{min-height:100svh;isolation:isolate;overflow:hidden;color:#edf8f7;background:radial-gradient(ellipse at 50% 24%,rgba(37,104,112,.44),transparent 48%),radial-gradient(ellipse at 76% 12%,rgba(104,143,177,.18),transparent 42%),linear-gradient(180deg,#081720 0%,#102b36 56%,#d5e6e6 100%)}
 .vstup-page .screen::before{display:none}
-.vstup-page .screen::after{opacity:.27;filter:saturate(.55)}
-.entry-snow{position:absolute;z-index:2;inset:0;pointer-events:none;opacity:.52;background-image:radial-gradient(circle,rgba(244,252,252,.9) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(212,240,241,.76) 0 1px,transparent 1.8px),radial-gradient(circle,rgba(255,255,255,.65) 0 1.2px,transparent 2px);background-size:83px 97px,131px 151px,197px 211px;background-position:12px 8px,42px 54px,91px 28px;animation:entry-snow-drift 22s linear infinite}
+.vstup-page .screen::after{opacity:.42;filter:brightness(1.16) saturate(.68)}
+.entry-snow{position:absolute;z-index:2;inset:0;overflow:hidden;pointer-events:none;opacity:.74}
 .vstup-page.js .entry-fog{animation:entry-fog-arrive 1.8s ease .2s both}
 @keyframes entry-fog-arrive{from{opacity:0}to{opacity:.82}}
 .entry-fog{position:absolute;z-index:3;inset:-12% -18%;pointer-events:none;overflow:hidden;opacity:.82;filter:blur(7px);transition:opacity .7s ease,transform .9s ease}
@@ -1003,6 +1003,10 @@ h1,h2{
 @keyframes entry-first{0%{opacity:0;filter:blur(7px);transform:translateY(8px)}25%,57%{opacity:1;filter:blur(0);transform:none}100%{opacity:0;filter:blur(6px);transform:translateY(-5px)}}
 @keyframes entry-fog-drift{0%{transform:translate3d(-4%,3%,0) scale(.94)}100%{transform:translate3d(7%,-5%,0) scale(1.08)}}
 @keyframes entry-snow-drift{from{background-position:12px 8px,42px 54px,91px 28px}to{background-position:28px 180px,10px 310px,144px 250px}}
+.entry-snow .snowflake{position:absolute;top:0;left:var(--snow-x);width:var(--snow-size);height:var(--snow-size);border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.98),rgba(218,237,240,.58) 72%);box-shadow:0 0 5px rgba(228,246,248,.46);opacity:var(--snow-alpha);animation:snowfall var(--snow-duration) linear var(--snow-delay) both;will-change:transform,opacity}
+.entry-snow .snowflake.is-static{top:var(--snow-y);opacity:var(--snow-alpha);animation:none}
+@keyframes snowfall{0%{transform:translate3d(0,-12vh,0) rotate(0deg);opacity:0}12%{opacity:var(--snow-alpha)}25%{transform:translate3d(calc(var(--snow-drift)*.3),16vh,0) rotate(70deg)}52%{transform:translate3d(calc(var(--snow-drift)*-.12),49vh,0) rotate(165deg)}78%{transform:translate3d(calc(var(--snow-drift)*.62),79vh,0) rotate(255deg)}92%{opacity:var(--snow-alpha)}100%{transform:translate3d(var(--snow-drift),112vh,0) rotate(350deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.entry-snow .snowflake{animation:none!important}}
 .entry-fog-arrival{display:none}
 html.uki-fog-arrival .entry-fog-arrival{display:block;position:fixed;z-index:1000;inset:0;overflow:hidden;background:rgba(197,220,222,.94);pointer-events:none;animation:none}
 .entry-fog-arrival::before,.entry-fog-arrival::after{content:"";position:absolute;top:-20%;bottom:-20%;width:68%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(245,251,250,.98) 0%,rgba(216,235,235,.94) 47%,rgba(169,201,204,.56) 75%,transparent 100%);filter:blur(22px)}
@@ -1013,5 +1017,5 @@ html.uki-fog-arrival .entry-fog-arrival.is-opening::after{animation:arrival-righ
 .sillanmaa-page.is-night .entry-fog-arrival{background:rgba(7,22,32,.96)}
 .sillanmaa-page.is-night .entry-fog-arrival::before,.sillanmaa-page.is-night .entry-fog-arrival::after{background:radial-gradient(ellipse at center,rgba(191,225,226,.88) 0%,rgba(84,139,150,.62) 44%,rgba(15,48,61,.22) 76%,transparent 100%)}
 @keyframes arrival-backdrop{to{opacity:0}}@keyframes arrival-left{to{transform:translateX(-76%);opacity:0}}@keyframes arrival-right{to{transform:translateX(76%);opacity:0}}
-@media(max-width:560px){.vstup-page .screen::after{opacity:.22;right:-120px;bottom:-85px}.entry-fog{inset:-10% -40%}.entry-fog::before,.entry-fog::after,.entry-fog__bank{width:115vw;height:31vh}.entry-fog::before{top:38%}.entry-fog::after{top:55%}.entry-fog__bank{left:2%;top:69%}.vstup-page .motto{padding-inline:10px}}
+@media(max-width:560px){.vstup-page .screen::after{opacity:.36;filter:brightness(1.12) saturate(.72);right:-120px;bottom:-85px}.entry-fog{inset:-10% -40%}.entry-fog::before,.entry-fog::after,.entry-fog__bank{width:115vw;height:31vh}.entry-fog::before{top:38%}.entry-fog::after{top:55%}.entry-fog__bank{left:2%;top:69%}.vstup-page .motto{padding-inline:10px}}
 @media(prefers-reduced-motion:reduce){.vstup-page.js .entry-fog{animation:none;opacity:.72}.entry-snow,.entry-fog::before,.entry-fog::after,.entry-fog__bank{animation:none!important}.vstup-page.js .entry-motto-first{animation:none;opacity:1;filter:none}.entry-fog-arrival,.entry-fog-arrival::before,.entry-fog-arrival::after{animation-duration:.01ms!important}.vstup-page.js.is-leaving .entry-fog{transition:none}}
