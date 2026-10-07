@@ -24,6 +24,31 @@
   if(!next)return;
   body.classList.add('js');
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const snow=document.querySelector('.entry-snow');
+  if(snow){
+    const addFlake=(initial=false)=>{
+      const flake=document.createElement('span');
+      flake.className='snowflake';
+      const duration=10+Math.random()*13;
+      flake.style.setProperty('--snow-x',(Math.random()*100)+'vw');
+      flake.style.setProperty('--snow-size',(1.3+Math.random()*3.1)+'px');
+      flake.style.setProperty('--snow-alpha',(0.32+Math.random()*0.48).toFixed(2));
+      flake.style.setProperty('--snow-drift',((Math.random()*150)-75).toFixed(0)+'px');
+      flake.style.setProperty('--snow-duration',duration.toFixed(1)+'s');
+      flake.style.setProperty('--snow-delay',initial?(-Math.random()*duration).toFixed(1)+'s':'0s');
+      if(reduced){
+        flake.classList.add('is-static');
+        flake.style.setProperty('--snow-y',(Math.random()*92)+'vh');
+      }else{
+        flake.addEventListener('animationend',()=>{
+          flake.remove();
+          window.setTimeout(()=>addFlake(),400+Math.random()*1300);
+        },{once:true});
+      }
+      snow.appendChild(flake);
+    };
+    for(let i=0;i<(reduced?12:20);i++)addFlake(true);
+  }
   const reveal=()=>{
     next.classList.add('is-visible');
     window.setTimeout(()=>{
