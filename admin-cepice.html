@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uki – soukromá evidence čepic</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#24383b;background:#f5f3eb}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:1050px;margin:auto;padding:30px 18px 80px}
+h1{font:normal clamp(2rem,6vw,3.2rem) Georgia,serif;margin:8px 0}
+a{color:#205a65}.muted{color:#50676b;font-size:.93rem}.panel{background:white;border:1px solid #d4ded9;border-radius:16px;padding:20px;margin:20px 0}
+label{display:block;font-weight:600;margin:10px 0 5px}
+input{padding:12px;border:1px solid #b5c4bf;border-radius:8px;max-width:100%;font-size:1rem}
+input[type=email]{width:min(100%,420px)}
+button{padding:11px 16px;border:0;border-radius:8px;background:#245f68;color:white;font:600 .95rem system-ui;cursor:pointer;margin:7px 8px 7px 0}
+button.secondary{background:#e5efed;color:#254950}
+button:disabled{opacity:.5;cursor:default}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stat{background:#e5efed;padding:15px;border-radius:12px}.stat strong{display:block;font-size:2rem;margin-top:5px}
+.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:750px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #e0e5e1}
+th{font-size:.83rem;color:#52676a}td{font-size:.95rem}
+.status{padding:12px;background:#e6eeee;border-radius:8px}
+.error{background:#fff0e8;color:#812f21}
+[hidden]{display:none!important}
+@media(max-width:560px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:10px}.stat strong{font-size:1.4rem}}
+</style></head><body><main class="wrap">
+<a href="kramek.html">← Ukčin krámek</a>
+<h1>Soukromá evidence čepic Uki</h1>
+<p class="muted">Jen pro organizátorku společné objednávky. Žádný veřejný seznam zájemců.</p>
+<div id="notice" class="status" role="status">Načítám zabezpečené přihlášení…</div>
+<section id="login" class="panel" hidden>
+<h2>Přihlášení</h2>
+<p>Pošleme ti přihlašovací odkaz na tvůj e-mail. Žádné další heslo si nemusíš pamatovat.</p>
+<form id="loginform"><label for="mail">E-mail organizátorky</label>
+<input id="mail" type="email" autocomplete="email" required placeholder="Tvůj e-mail">
+<div><button type="submit">Poslat přihlašovací odkaz</button></div></form>
+<p class="muted">Odkaz funguje jen pro účet, jehož e-mail je povolen v zabezpečení databáze.</p>
+</section>
+<section id="dashboard" hidden>
+<div><button id="refresh" type="button">Obnovit seznam</button><button id="export-summary" type="button">Excel pro DDSport (souhrn)</button><button id="export-detail" type="button">Excel – vlastní evidence</button><button id="logout" class="secondary" type="button">Odhlásit</button></div>
+<div class="cards"><div class="stat">Junior<strong id="count-j">0</strong></div><div class="stat">Senior<strong id="count-s">0</strong></div><div class="stat">Celkem kusů<strong id="count-all">0</strong></div></div>
+<p id="amount" class="muted"></p>
+<section class="panel"><h2>Zájemci</h2><p class="muted">Vyřízené přihlášky můžeš označit zaškrtnutím. Pro výrobce stahuj jen souhrn bez osobních údajů.</p>
+<div class="tablewrap"><table><thead><tr><th>Datum</th><th>Jméno</th><th>E-mail</th><th>Junior</th><th>Senior</th><th>Částka</th><th>Vyřízeno</th></tr></thead><tbody id="records"></tbody></table></div></section>
+</section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/uki-admin.js"></script>
+</body></html>
