@@ -1,0 +1,20 @@
+'use strict';
+(function(){
+const URL='https://gcdtqbeinaplqleuxwms.supabase.co';
+const KEY='sb_publishable_MEu6mQJU3B-FbB4rolg8oA_W26M06BU';
+const el=id=>document.getElementById(id);
+const notice=(msg,error=false)=>{el('notice').textContent=msg;el('notice').classList.toggle('error',error)};
+let client, entries=[];
+try{client=window.supabase.createClient(URL,KEY)}catch(e){notice('Nepodařilo se načíst přihlašování. Zkus obnovit stránku.',true);return}
+function cell(tr,txt){const td=document.createElement('td');td.textContent=txt;tr.appendChild(td);return td}
+function download(name,lines){const content='\uFEFF'+lines.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));link.download=name;document.body.append(link);link.click();setTimeout(()=>{URL.revokeObjectURL(link.href);link.remove()},1000)}
+function summary(){const j=entries.reduce((a,x)=>a+x.junior,0),s=entries.reduce((a,x)=>a+x.senior,0);el('count-j').textContent=j;el('count-s').textContent=s;el('count-all').textContent=j+s;el('amount').textContent='Celková hodnota zájmu: '+((j+s)*445).toLocaleString('cs-CZ')+' Kč bez případného poštovného.'}
+async function reload(){notice('Načítám seznam…');const {data,error}=await client.from('uki_cepice').select('id,vytvoreno,jmeno,email,junior,senior,vyrizeno').order('vytvoreno',{ascending:false}).limit(1000);if(error){notice('Seznam není dostupný. Zkontroluj nastavení přístupových práv. '+error.message,true);return}entries=data||[];summary();const body=el('records');body.replaceChildren();entries.forEach(item=>{const tr=document.createElement('tr');cell(tr,new Date(item.vytvoreno).toLocaleDateString('cs-CZ'));cell(tr,item.jmeno);cell(tr,item.email);cell(tr,item.junior);cell(tr,item.senior);cell(tr,((item.junior+item.senior)*445).toLocaleString('cs-CZ')+' Kč');const td=document.createElement('td'),box=document.createElement('input');box.type='checkbox';box.checked=!!item.vyrizeno;box.setAttribute('aria-label','Vyřízeno: '+item.jmeno);box.addEventListener('change',async()=>{box.disabled=true;const {error}=await client.from('uki_cepice').update({vyrizeno:box.checked}).eq('id',item.id);box.disabled=false;if(error){box.checked=!box.checked;notice('Nepodařilo se uložit změnu: '+error.message,true)}else{item.vyrizeno=box.checked;notice('Změna uložena.')}});td.append(box);tr.append(td);body.append(tr)});notice('Načteno záznamů: '+entries.length)}
+async function begin(){const {data:{session}}=await client.auth.getSession();const logged=!!session;el('login').hidden=logged;el('dashboard').hidden=!logged;if(logged){await reload()}else{notice('Pro zobrazení seznamu se přihlas.')}}
+el('loginform').addEventListener('submit',async e=>{e.preventDefault();const email=el('mail').value.trim();notice('Odesílám přihlašovací odkaz…');const {error}=await client.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+location.pathname}});notice(error?'Nepodařilo se poslat odkaz: '+error.message:'Hotovo. Zkontroluj e-mail a otevři přihlašovací odkaz na tomto zařízení.',!!error)});
+el('refresh').addEventListener('click',reload);
+el('logout').addEventListener('click',async()=>{await client.auth.signOut();await begin()});
+el('export-summary').addEventListener('click',()=>{const j=entries.reduce((a,x)=>a+x.junior,0),s=entries.reduce((a,x)=>a+x.senior,0);download('uki-cepice-ddsport.csv',[['Velikost','Počet kusů'],['Junior',j],['Senior',s],['Celkem',j+s]])});
+el('export-detail').addEventListener('click',()=>download('uki-cepice-evidence.csv',[['Datum','Jméno','E-mail','Junior','Senior','Celkem Kč','Vyřízeno'],...entries.map(x=>[new Date(x.vytvoreno).toLocaleDateString('cs-CZ'),x.jmeno,x.email,x.junior,x.senior,(x.junior+x.senior)*445,x.vyrizeno?'Ano':'Ne'])]));
+client.auth.onAuthStateChange(()=>{setTimeout(begin,0)});begin();
+})();
