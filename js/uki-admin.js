@@ -1,11 +1,11 @@
 'use strict';
 (function(){
-const URL='https://gcdtqbeinaplqleuxwms.supabase.co';
+const PROJECT_URL='https://gcdtqbeinaplqleuxwms.supabase.co';
 const KEY='sb_publishable_MEu6mQJU3B-FbB4rolg8oA_W26M06BU';
 const el=id=>document.getElementById(id);
 const notice=(msg,error=false)=>{el('notice').textContent=msg;el('notice').classList.toggle('error',error)};
 let client, entries=[];
-try{client=window.supabase.createClient(URL,KEY)}catch(e){notice('Nepodařilo se načíst přihlašování. Zkus obnovit stránku.',true);return}
+try{client=window.supabase.createClient(PROJECT_URL,KEY)}catch(e){notice('Nepodařilo se načíst přihlašování. Zkus obnovit stránku.',true);return}
 function cell(tr,txt){const td=document.createElement('td');td.textContent=txt;tr.appendChild(td);return td}
 function download(name,lines){const content='\uFEFF'+lines.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));link.download=name;document.body.append(link);link.click();setTimeout(()=>{URL.revokeObjectURL(link.href);link.remove()},1000)}
 function summary(){const j=entries.reduce((a,x)=>a+x.junior,0),s=entries.reduce((a,x)=>a+x.senior,0);el('count-j').textContent=j;el('count-s').textContent=s;el('count-all').textContent=j+s;el('amount').textContent='Celková hodnota zájmu: '+((j+s)*445).toLocaleString('cs-CZ')+' Kč bez případného poštovného.'}
