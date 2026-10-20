@@ -16,5 +16,29 @@ el('refresh').addEventListener('click',reload);
 el('logout').addEventListener('click',async()=>{await client.auth.signOut();await begin()});
 el('export-summary').addEventListener('click',()=>{const j=entries.reduce((a,x)=>a+x.junior,0),s=entries.reduce((a,x)=>a+x.senior,0);download('uki-cepice-ddsport.csv',[['Velikost','Počet kusů'],['Junior',j],['Senior',s],['Celkem',j+s]])});
 el('export-detail').addEventListener('click',()=>download('uki-cepice-evidence.csv',[['Datum','Jméno','E-mail','Junior','Senior','Celkem Kč','Vyřízeno'],...entries.map(x=>[new Date(x.vytvoreno).toLocaleDateString('cs-CZ'),x.jmeno,x.email,x.junior,x.senior,(x.junior+x.senior)*445,x.vyrizeno?'Ano':'Ne'])]));
+
+// Adresy zákazníků zůstanou jen v přihlášené administraci a v konceptu Gmailu.
+function recipientEmails(){
+  return [...new Set(entries.map(x=>String(x.email||'').trim().toLowerCase())
+    .filter(x=>/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(x)))];
+}
+el('mass-email').addEventListener('click',()=>{
+  const emails=recipientEmails();
+  if(!emails.length){notice('Zatím nemáme žádné platné e-mailové adresy.',true);return}
+  const subject='Čepice UKI – informace k dodání';
+  const body='Dobrý den,\\n\\nmám pro vás zprávu k čepicím UKI. DDSport plánuje dokončení výroby 3. 12. 2026 a dodání ke mně kolem 6. 12. 2026. Následně čepice roztřídím, zabalím a předpokládám odeslání všech objednávek nejpozději do 11. 12. 2026, pokud nenastane zdržení ve výrobě nebo dopravě.\\n\\nPokud se chcete s dalšími objednávajícími domluvit na společné zásilce a ušetřit za poštovné, napište mi prosím. Případně bude po předchozí domluvě možné osobní vyzvednutí v Praze na Florenci, pokud už budu zpátky v práci.\\n\\nDěkuji a přeji hezký den!\\nKarolina';
+  const url='https://mail.google.com/mail/?view=cm&fs=1'
+    +'&bcc='+encodeURIComponent(emails.join(','))
+    +'&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.open(url,'_blank','noopener,noreferrer');
+  notice('Gmail otevřen pro '+emails.length+' unikátních adres ve skryté kopii. Před odesláním zkontroluj odesílací účet k.ventlukova@gmail.com a příjemce.');
+});
+el('copy-emails').addEventListener('click',async()=>{
+  const emails=recipientEmails();
+  if(!emails.length){notice('Zatím nemáme žádné platné e-mailové adresy.',true);return}
+  try{await navigator.clipboard.writeText(emails.join(', '));notice('Zkopírováno '+emails.length+' adres. V Gmailu je vlož do pole Skrytá kopie (BCC).')}
+  catch(e){notice('Prohlížeč nepovolil kopírování. Použij tlačítko Hromadný e-mail.',true)}
+});
+
 client.auth.onAuthStateChange(()=>{setTimeout(begin,0)});begin();
 })();
