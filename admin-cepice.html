@@ -12,7 +12,7 @@ input{padding:12px;border:1px solid #b5c4bf;border-radius:8px;max-width:100%;fon
 input[type=email]{width:min(100%,420px)}
 button{padding:11px 16px;border:0;border-radius:8px;background:#245f68;color:white;font:600 .95rem system-ui;cursor:pointer;margin:7px 8px 7px 0}
 button.secondary{background:#e5efed;color:#254950}
-button:disabled{opacity:.5;cursor:default}
+button:disabled{opacity:.5;cursor:default} button.danger{background:#a13f35} .editing{background:#f7fbf8} .edit-actions{display:flex;flex-wrap:wrap;gap:8px} .edit-actions button{margin:2px} .dialog-form{display:grid;gap:12px} .dialog-form input{width:100%} dialog{border:1px solid #b5c4bf;border-radius:16px;box-shadow:0 15px 50px #0003;max-width:min(92vw,520px);width:100%;padding:24px} dialog::backdrop{background:#15252c99} .hint{font-size:.85rem;color:#516a6b}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .stat{background:#e5efed;padding:15px;border-radius:12px}.stat strong{display:block;font-size:2rem;margin-top:5px}
 .tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:750px}
@@ -36,12 +36,12 @@ th{font-size:.83rem;color:#52676a}td{font-size:.95rem}
 <p class="muted">Odkaz funguje jen pro účet, jehož e-mail je povolen v zabezpečení databáze.</p>
 </section>
 <section id="dashboard" hidden>
-<div><button id="refresh" type="button">Obnovit seznam</button><button id="export-summary" type="button">Excel pro DDSport (souhrn)</button><button id="export-detail" type="button">Excel – vlastní evidence</button><button id="mass-email" type="button">✉ Hromadný e-mail (Gmail)</button><button id="copy-emails" class="secondary" type="button">Kopírovat adresy</button><button id="logout" class="secondary" type="button">Odhlásit</button></div>
+<div><button id="add-order" type="button">＋ Přidat záznam</button><button id="refresh" type="button">Obnovit seznam</button><button id="export-summary" type="button">Excel pro DDSport (souhrn)</button><button id="export-detail" type="button">Excel – vlastní evidence</button><button id="mass-email" type="button">✉ Hromadný e-mail (Gmail)</button><button id="copy-emails" class="secondary" type="button">Kopírovat adresy</button><button id="logout" class="secondary" type="button">Odhlásit</button></div>
 <div class="cards"><div class="stat">Junior<strong id="count-j">0</strong></div><div class="stat">Senior<strong id="count-s">0</strong></div><div class="stat">Celkem kusů<strong id="count-all">0</strong></div></div>
 <p id="amount" class="muted"></p>
 <section class="panel"><h2>Zájemci</h2><p class="muted">Vyřízené přihlášky můžeš označit zaškrtnutím. Pro výrobce stahuj jen souhrn bez osobních údajů.</p>
-<div class="tablewrap"><table><thead><tr><th>Datum</th><th>Jméno</th><th>E-mail</th><th>Junior</th><th>Senior</th><th>Částka</th><th>Vyřízeno</th></tr></thead><tbody id="records"></tbody></table></div></section>
-</section></main>
+<div class="tablewrap"><table><thead><tr><th>Datum</th><th>Jméno</th><th>E-mail</th><th>Junior</th><th>Senior</th><th>Částka</th><th>Vyřízeno</th><th>Úpravy</th></tr></thead><tbody id="records"></tbody></table></div></section>
+</section><dialog id="order-dialog" aria-labelledby="order-title"><h2 id="order-title">Upravit záznam</h2><form id="order-form" class="dialog-form"><input id="edit-id" type="hidden"><label>Jméno a příjmení<input id="edit-name" required maxlength="160" autocomplete="name"></label><label>E-mail<input id="edit-email" type="email" required maxlength="255" autocomplete="email"></label><div class="sizes"><label>Junior<input id="edit-junior" type="number" required min="0" max="99" step="1" value="0"></label><label>Senior<input id="edit-senior" type="number" required min="0" max="99" step="1" value="1"></label></div><p id="edit-total" class="muted"></p><div><button type="submit" id="save-order">Uložit</button><button id="cancel-order" type="button" class="secondary">Zrušit</button></div></form><p class="hint">Změny se ukládají do databáze a promítnou se do součtů i exportů.</p></dialog></main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="js/uki-admin.js"></script>
 </body></html>
