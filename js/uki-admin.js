@@ -76,9 +76,10 @@ editForm.addEventListener('submit',async e=>{
   const save=el('save-order');save.disabled=true;
   const values={jmeno:name,email,junior:j,senior:s};
   try{
-    const q=id?client.from('uki_cepice').update(values).eq('id',id):client.from('uki_cepice').insert(values);
-    const {error}=await q;
+    const q=id?client.from('uki_cepice').update(values).eq('id',id).select('id'):client.from('uki_cepice').insert(values).select('id');
+    const {data,error}=await q;
     if(error)throw error;
+    if(!data||data.length!==1)throw new Error('Databáze nepotvrdila změnu. Ověř oprávnění v Supabase.');
     dialog.close();await reload();notice(id?'Záznam upraven a uložen.':'Nový záznam přidán.');
   }catch(err){notice('Uložení se nepodařilo: '+err.message,true)}
   finally{save.disabled=false}
@@ -86,8 +87,8 @@ editForm.addEventListener('submit',async e=>{
 async function deleteOrder(item){
   if(!window.confirm('Opravdu trvale smazat záznam pro '+item.jmeno+' ('+item.email+') – Junior '+item.junior+', Senior '+item.senior+'?\\n\\nTuto akci nejde vrátit.'))return;
   notice('Mažu vybraný záznam…');
-  const {error}=await client.from('uki_cepice').delete().eq('id',item.id);
-  if(error){notice('Záznam se nepodařilo smazat: '+error.message,true);return}
+  const {data,error}=await client.from('uki_cepice').delete().eq('id',item.id).select('id');
+  if(error||!data||data.length!==1){notice('Záznam se nepodařilo smazat: '+(error?error.message:'Databáze mazání nepotvrdila. Ověř oprávnění v Supabase.'),true);return}
   await reload();notice('Záznam byl smazán.');
 }
 
